@@ -1,7 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
 
 const app = express();
 mongoose.connect('mongodb+srv://admin:admin@cluster0.jubic.mongodb.net/test?retryWrites=true&w=majority',
@@ -19,14 +20,16 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(bodyParser.json());
+
 app.use((req, res, next) => {
-    console.log('req recu');
+    console.log(req.body);
     next();
-})
+});
 
 app.use((req, res, next) => {
     res.json({ message: 'requete recue' })
-})
+});
 
 app.use('/api/auth', userRoutes);
 
