@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 
 const sauceShema = mongoose.Schema ({
-    name: {type: String, required: true},
-    manufacturer: {type: String, required:true},
-    description: {type: String, required:true},
-    mainPepper: {type: String, required:true},
-    heat: {type: Number}
+    userId: {type: String},
+    name: {type: String},
+    manufacturer: {type: String},
+    description: {type: String},
+    mainPepper: {type: String},
+    imageURL: {type: String},
+    heat: {type: Number},
+    likes: {type: Number},
+    dislikes: {type: Number}
 })
+
+module.exports = mongoose.model('Sauce', sauceShema);
