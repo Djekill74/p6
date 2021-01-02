@@ -7,7 +7,7 @@ const userRoutes = require('./routes/user')
 const saucesRoutes = require('./routes/sauces')
 
 const app = express()
-mongoose.connect('mongodb+srv://admin:admin@cluster0.jubic.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://user:user1234@cluster0.jubic.mongodb.net/test?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
